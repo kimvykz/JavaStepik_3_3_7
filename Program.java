@@ -10,8 +10,8 @@ import java.io.IOException;
 public class Program extends JPanel implements KeyListener {
     private BufferedImage image;
     private int x = 0, y = 0, width = 100, height = 100;
-    private final int moveAmount = 100;
-    private final int moveAmountShift = 200;
+    private final int moveAmount = 50;
+    private final int moveAmountShift = 100;
 
 
     public Program(){
