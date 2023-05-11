@@ -11,6 +11,7 @@ public class Program extends JPanel implements KeyListener {
     private BufferedImage image;
     private int x = 0, y = 0, width = 100, height = 100;
     private final int moveAmount = 100;
+    private final int moveAmountShift = 200;
 
 
     public Program(){
@@ -42,34 +43,34 @@ public class Program extends JPanel implements KeyListener {
                     x = this.getWidth() - width;
                 }
                 else {
-                    x -= moveAmount;
+                    x -= (e.isShiftDown() ? moveAmountShift : moveAmount);
                 }
                 repaint();
                 break;
             case KeyEvent.VK_RIGHT:
-                if (x >= this.getWidth() - moveAmount) {
+                if (x >= this.getWidth() - (e.isShiftDown()? moveAmountShift : moveAmount)) {
                     x = 0;
                 }
                 else {
-                    x += moveAmount;
+                    x += (e.isShiftDown()? moveAmountShift : moveAmount);
                 }
                 repaint();
                 break;
             case KeyEvent.VK_UP:
                 if (y <= 0) {
-                    y = this.getHeight() - moveAmount;
+                    y = this.getHeight() - height;
                 }
                 else {
-                    y -= moveAmount;
+                    y -= (e.isShiftDown() ? moveAmountShift : moveAmount);
                 }
                 repaint();
                 break;
             case KeyEvent.VK_DOWN:
-                if (y >= this.getHeight() - moveAmount){
+                if (y >= this.getHeight() - (e.isShiftDown()? moveAmountShift : moveAmount)){
                     y = 0;
                 }
                 else {
-                    y += moveAmount;
+                    y += (e.isShiftDown()? moveAmountShift : moveAmount);
                 }
                 repaint();
                 break;
